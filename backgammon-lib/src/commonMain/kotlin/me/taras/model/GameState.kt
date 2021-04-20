@@ -1,3 +1,3 @@
 package me.taras.model
 
-data class GameState(val board: Array<Chips>, val bar: Array<Chips>, val currentTurn: Color, val availableDices: Array<Int>)
+class GameState(val board: Board, val bar: Array<ChipsColumn>, var currentTurn: Color, var availableDices: Array<Int>)
