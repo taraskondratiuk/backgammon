@@ -4,6 +4,7 @@ import me.taras.gameimpl.GameLong
 import me.taras.model.Color
 import me.taras.model.GameState
 import me.taras.model.Turn
+import me.taras.model.TurnRes
 
 abstract class Game {
     val BOARD_SIZE = 24
@@ -11,8 +12,8 @@ abstract class Game {
 
     abstract fun gameState(): GameState
 
-    abstract fun makeTurn(from: Int, to: Int): GameState
-    abstract fun getAvailableTurns(): Array<Turn>
+    abstract fun makeTurn(turn: Turn): TurnRes
+    abstract fun getAvailableTurns(): List<List<Turn>>
 
     companion object {
         fun initLong(firstTurn: Color = Color.ABSENT): Game {

@@ -1,8 +1,7 @@
 package me.taras.model
 
-class Board {
-    private val boardArr = Array(24) { ChipsColumn() }
-
+class Board(private val boardArr: Array<ChipsColumn> =  Array(24) { ChipsColumn() }) {
+    
     fun put(color: Color, cell: Int, num: Int = 1) {
         val cellToChange = boardArr[cell - 1]
         boardArr[cell - 1] = cellToChange.copy(color = color, num = cellToChange.num + num)
@@ -17,13 +16,24 @@ class Board {
 
     fun move(from: Int, to: Int) {
         val removedChips = remove(from)
-        put(removedChips.color, to)
+        if (to != 0) put(removedChips.color, to)
     }
 
-    fun get(cell: Int): ChipsColumn {
-        return boardArr[cell - 1]
-    }
+    fun get(cell: Int): ChipsColumn = boardArr[cell - 1]
 
+    fun getColumns(): Map<Int, ChipsColumn> = (1..24).associateWith { get(it) }
+
+    fun getBlackColumns(): Map<Int, ChipsColumn> = getColumns().filter { it.value.isBlack() }
+
+    fun getWhiteColumns(): Map<Int, ChipsColumn> = getColumns().filter { it.value.isWhite() }
+
+    fun getEmptyColumns(): Map<Int, ChipsColumn> = getColumns().filter { it.value.isEmpty() }
+
+    fun getSameColorColumns(color: Color): Map<Int, ChipsColumn> = getColumns().filter { it.value.sameColor(color) }
+    
+    fun copy(): Board {
+        return Board(boardArr.copyOf())
+    }
     override fun toString(): String {
         fun colorToSymbol(color: Color): String {
             return when(color) {
