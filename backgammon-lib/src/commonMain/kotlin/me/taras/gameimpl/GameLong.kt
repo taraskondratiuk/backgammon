@@ -20,18 +20,48 @@ class GameLong(firstTurn: Color = Color.ABSENT): Game() {
                 turns(it)
             }
         }
+        println(dices)
+        println(allTurns)
         val maxLen = allTurns.map { it.size }.maxOrNull() ?: 0
         val maxLenTurns = allTurns.filter { it.size == maxLen }
-        val turns = if (maxLen < dices.size) {
+        val turnsList = if (maxLen < dices.size) {
             val longestTurn = maxLenTurns.maxByOrNull { it.first().dice }
             listOfNotNull(longestTurn)
         } else maxLenTurns.distinct()
-        return if (isFirst) {
-            turns.filter { listOfTurns ->
-                listOfTurns.filter { turn -> turn.from == headCellByColor(currentTurnColor) }.size < 3
+        return filterOutUnavailable(turnsList, board, dices, isFirst).filter { it.isNotEmpty() }.distinct()
+    }
+
+    // 3333
+    //3 (6) (9)  2 hoda dlya 33
+
+
+
+    //4444  4 8 12 1 hod dlya 4
+    fun filterOutUnavailable(turnsList: List<List<Turn>>, board: Board, dices: List<Int>, isFirst: Boolean): List<List<Turn>> {
+        tailrec fun leaveTwoFromHead(turns: List<Turn>): List<Turn> {
+            return if (turns.count { isFromHead(it) } < 3) turns
+            else leaveTwoFromHead(turns.reversed().minus(turns.find { isFromHead(it) }!!).reversed())
+        }
+        fun isTurnUnavailableCauseOfHead(dice: Int, turns: List<Turn>): Boolean {
+            println(turns)
+            println(turns.filterNot { isFromHead(it) }.size)
+            return when (dice) {
+                3 -> turns.filterNot { isFromHead(it) }.size == 2
+                4 -> turns.filterNot { isFromHead(it) }.size == 1
+                else -> true
             }
-        } else turns.filter { listOfTurns ->
-            listOfTurns.filter { turn -> turn.from == headCellByColor(currentTurnColor) }.size < 2
+        }
+        return if (isFirst && dices.size > 2 && listOf(3, 4, 6).contains(dices.first()) && turnsList.any { isTurnUnavailableCauseOfHead(dices.first(), it) } ) {
+            println("hui")
+            val resFiltered = turnsList.filter { turns -> turns.count { isFromHead(it) } < 3 }
+            resFiltered.ifEmpty {
+                turnsList.map { turns -> leaveTwoFromHead(turns) }
+            }
+        } else {
+            val resFiltered = turnsList.filter { turns -> turns.count { isFromHead(it) } < 2 }
+            resFiltered.ifEmpty {
+                turnsList.map { turns -> listOfNotNull(turns.maxByOrNull { it.dice }) }
+            }
         }
     }
 
@@ -41,7 +71,7 @@ class GameLong(firstTurn: Color = Color.ABSENT): Game() {
         return if (head.nextTurns.isEmpty()) acc.plus(head) else head.nextTurns.flatMap { lastNodes(it, acc) }
     }
 
-    fun headCellByColor(color: Color) = if (color == Color.WHITE) 24 else 12
+    fun isFromHead(turn: Turn) = (turn.from == 24) || (turn.from == 12)
 
     fun buildTurnsTree(head: TurnNode, dice: Int, depth: Int, color: Color) {
         if (head.depth == depth) {

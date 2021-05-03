@@ -8,7 +8,7 @@ class GameEngine(firstTurn: Color, boardInitMethod: (Board) -> Unit, val generat
     val bar: Array<ChipsColumn> = emptyArray()
     var currentTurn: Color
     var availableDices: List<Int>
-    var availableTurns: List<List<Turn>>
+    private var availableTurns: List<List<Turn>>
 
     init {
         currentTurn = if (firstTurn == Color.ABSENT) arrayOf(Color.WHITE, Color.BLACK).random() else firstTurn

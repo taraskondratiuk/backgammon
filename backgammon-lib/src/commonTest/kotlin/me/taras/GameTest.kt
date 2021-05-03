@@ -31,7 +31,6 @@ class GameTest {
         board.put(Color.BLACK, 10, 1)
         board.put(Color.BLACK, 11, 1)
         val game = GameLong()
-        println(board)
 
         val turns = game.generateTurnsMethod(board, listOf(3, 5), Color.WHITE, isFirst = false)
         turns.forEach { println(it) }
@@ -44,20 +43,78 @@ class GameTest {
     }
 
     @Test
-    fun testIsTurnAvailable2() {
+    fun testNoTurnsAvailable() {
         val board = Board()
-        board.put(Color.WHITE, 6, 2)
-        board.put(Color.WHITE, 4, 3)
-        board.put(Color.WHITE, 5, 2)
         board.put(Color.BLACK, 12, 15)
+        board.put(Color.WHITE, 24, 15)
+
         val game = GameLong()
-        println(board)
-        println(1)
-        game.generateTurnsMethod(board, listOf(3, 5), Color.WHITE, isFirst = false).forEach { println(it) }
-        println(2)
-
-
-        game.generateTurnsMethod(board, listOf(6, 6, 6, 6), Color.WHITE, isFirst = false).forEach { println(it) }
-        println(3)
+        board.put(Color.BLACK, 23)
+        val turns1 = game.generateTurnsMethod(board, listOf(1, 1, 1, 1), Color.WHITE, isFirst = false)
+        assertEquals(emptyList(), turns1)
     }
+
+    @Test
+    fun testIsTurnAvailableFromHeadNotFirst() {
+        val board = Board()
+        board.put(Color.BLACK, 12, 15)
+        board.put(Color.WHITE, 24, 15)
+
+        val game = GameLong()
+        val turns1 = game.generateTurnsMethod(board, listOf(6, 6, 6, 6), Color.WHITE, isFirst = false)
+        assertEquals(listOf(listOf(Turn(24, 18, 6))), turns1)
+
+
+        board.put(Color.BLACK, 22, 2)
+        board.put(Color.BLACK, 21, 2)
+        val turns2 = game.generateTurnsMethod(board, listOf(1, 2), Color.WHITE, isFirst = false)
+        assertEquals(listOf(listOf(Turn(24, 23, 1))), turns2)
+    }
+
+    @Test
+    fun testIsTurnAvailableFromHeadFirst() {
+        val board = Board()
+        board.put(Color.BLACK, 12, 15)
+        board.put(Color.WHITE, 24, 15)
+
+        val game = GameLong()
+        val turns1 = game.generateTurnsMethod(board, listOf(6, 6, 6, 6), Color.WHITE, isFirst = true)
+        assertEquals(listOf(listOf(Turn(24, 18, 6), Turn(24, 18, 6))), turns1)
+
+        val turns2 = game.generateTurnsMethod(board, listOf(3, 3, 3, 3), Color.WHITE, isFirst = true)
+        assertTrue(turns2.contains(listOf(Turn(24, 21, 3), Turn(21, 18, 3), Turn(18, 15, 3), Turn(24, 21, 3))))
+        assertTrue(turns2.all { it.size == 4 })
+
+        board.put(Color.BLACK, 18)
+
+        val turns3 = game.generateTurnsMethod(board, listOf(3, 3, 3, 3), Color.WHITE, isFirst = true)
+        assertEquals(listOf(listOf(Turn(24, 21, 3))), turns3)
+
+        board.put(Color.BLACK, 21)
+
+        val turns4 = game.generateTurnsMethod(board, listOf(3, 3, 3, 3), Color.WHITE, isFirst = true)
+        assertEquals(emptyList(), turns4)
+    }
+
+    @Test
+    fun testIsTurnAvailableToBlock() {
+        val board = Board()
+        board.put(Color.BLACK, 12, 15)
+        board.put(Color.WHITE, 24, 15)
+        board.put(Color.WHITE, 18)
+        board.put(Color.WHITE, 17)
+        board.put(Color.WHITE, 16)
+        board.put(Color.WHITE, 15)
+        board.put(Color.WHITE, 14)
+
+
+        val game = GameLong()
+        val turns1 = game.generateTurnsMethod(board, listOf(5), Color.WHITE, isFirst = false)
+        assertTrue(turns1.flatMap { it.filter { turn -> turn.from == 24  } }.isEmpty())
+
+        board.put(Color.BLACK, 13)
+        val turns2 = game.generateTurnsMethod(board, listOf(5), Color.WHITE, isFirst = false)
+        assertTrue(turns2.flatMap { it.filter { turn -> turn.from == 24  } }.isNotEmpty())
+    }
+
 }
