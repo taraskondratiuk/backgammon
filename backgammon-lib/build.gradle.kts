@@ -1,13 +1,14 @@
 plugins {
     kotlin("multiplatform") version "1.4.32"
+    id("io.github.gciatto.kt-npm-publish") version "0.3.6"
+    id("maven-publish")
 }
 
 group = "me.taras"
-version = "1.0-SNAPSHOT"
+version = "0.1.0"
 
 repositories {
     mavenCentral()
-//    jcenter()
 }
 
 kotlin {
@@ -19,12 +20,8 @@ kotlin {
             useJUnit()
         }
     }
-    js(LEGACY) {
-        browser {
-            commonWebpackConfig {
-                cssSupport.enabled = true
-            }
-        }
+    js {
+        nodejs ()
     }
 
     sourceSets {
@@ -45,6 +42,25 @@ kotlin {
         val jsTest by getting {
             dependencies {
                 implementation(kotlin("test-js"))
+            }
+        }
+    }
+
+    npmPublishing {
+        with(token) {
+            set(System.getenv("NPM_TOKEN"))
+        }
+    }
+
+    publishing {
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://maven.pkg.github.com/${System.getenv("ORGANIZATION")}/${System.getenv("REPO_NAME")}")
+                credentials {
+                    username = System.getenv("GITHUB_USERNAME")
+                    password = System.getenv("GITHUB_TOKEN")
+                }
             }
         }
     }

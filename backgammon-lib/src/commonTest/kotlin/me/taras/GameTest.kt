@@ -33,7 +33,6 @@ class GameTest {
         val game = GameLong()
 
         val turns = game.generateTurnsMethod(board, listOf(3, 5), Color.WHITE, isFirst = false)
-        turns.forEach { println(it) }
 
         assertEquals(4, turns.size)
         assertTrue(turns.contains(listOf(Turn(24, 21, 3), Turn(13, 8, 5))))

@@ -20,8 +20,7 @@ class GameLong(firstTurn: Color = Color.ABSENT): Game() {
                 turns(it)
             }
         }
-        println(dices)
-        println(allTurns)
+
         val maxLen = allTurns.map { it.size }.maxOrNull() ?: 0
         val maxLenTurns = allTurns.filter { it.size == maxLen }
         val turnsList = if (maxLen < dices.size) {
@@ -31,20 +30,12 @@ class GameLong(firstTurn: Color = Color.ABSENT): Game() {
         return filterOutUnavailable(turnsList, board, dices, isFirst).filter { it.isNotEmpty() }.distinct()
     }
 
-    // 3333
-    //3 (6) (9)  2 hoda dlya 33
-
-
-
-    //4444  4 8 12 1 hod dlya 4
     fun filterOutUnavailable(turnsList: List<List<Turn>>, board: Board, dices: List<Int>, isFirst: Boolean): List<List<Turn>> {
         tailrec fun leaveTwoFromHead(turns: List<Turn>): List<Turn> {
             return if (turns.count { isFromHead(it) } < 3) turns
             else leaveTwoFromHead(turns.reversed().minus(turns.find { isFromHead(it) }!!).reversed())
         }
         fun isTurnUnavailableCauseOfHead(dice: Int, turns: List<Turn>): Boolean {
-            println(turns)
-            println(turns.filterNot { isFromHead(it) }.size)
             return when (dice) {
                 3 -> turns.filterNot { isFromHead(it) }.size == 2
                 4 -> turns.filterNot { isFromHead(it) }.size == 1
@@ -52,7 +43,6 @@ class GameLong(firstTurn: Color = Color.ABSENT): Game() {
             }
         }
         return if (isFirst && dices.size > 2 && listOf(3, 4, 6).contains(dices.first()) && turnsList.any { isTurnUnavailableCauseOfHead(dices.first(), it) } ) {
-            println("hui")
             val resFiltered = turnsList.filter { turns -> turns.count { isFromHead(it) } < 3 }
             resFiltered.ifEmpty {
                 turnsList.map { turns -> leaveTwoFromHead(turns) }
