@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "me.taras"
-version = "0.1.0"
+version = "0.1.17"
 
 repositories {
     mavenCentral()
@@ -13,8 +13,9 @@ repositories {
 
 kotlin {
     jvm {
+        withJava()
         compilations.all {
-            kotlinOptions.jvmTarget = "1.8"
+            kotlinOptions.jvmTarget = "11"
         }
         testRuns["test"].executionTask.configure {
             useJUnit()
@@ -47,19 +48,17 @@ kotlin {
     }
 
     npmPublishing {
-        with(token) {
-            set(System.getenv("NPM_TOKEN"))
-        }
+        token.set("9fdad2bb-00b0-4367-aa9f-d2a834521346")
     }
 
     publishing {
         repositories {
             maven {
                 name = "GitHubPackages"
-                url = uri("https://maven.pkg.github.com/${System.getenv("ORGANIZATION")}/${System.getenv("REPO_NAME")}")
+                url = uri("https://maven.pkg.github.com/taraskondratiuk/backgammon")
                 credentials {
-                    username = System.getenv("GITHUB_USERNAME")
-                    password = System.getenv("GITHUB_TOKEN")
+                    username = "taraskondratiuk"
+                    password = "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"
                 }
             }
         }

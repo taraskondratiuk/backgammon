@@ -11,7 +11,24 @@
 </template>
 
 <script>
-import Column from "./Column";
+import Column from "./Column"
+import * as db from "../firebase"
+import {gameDocToObj} from "@/model/transformer"
+
+db.gamesCol.doc("gameid123").onSnapshot(doc => {
+  const currentdate = new Date();
+  const datetime = "Last Sync: " + currentdate.getDate() + "/"
+      + (currentdate.getMonth()+1)  + "/"
+      + currentdate.getFullYear() + " @ "
+      + currentdate.getHours() + ":"
+      + currentdate.getMinutes() + ":"
+      + currentdate.getSeconds() + ":" + currentdate.getMilliseconds();
+  console.log("invoke time: " + datetime)
+  console.log("Current data: ", doc.data())
+
+  console.log("res: ", gameDocToObj(doc))
+})
+
 export default {
   name: "Board",
   components: {Column},

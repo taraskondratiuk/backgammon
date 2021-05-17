@@ -1,6 +1,14 @@
 <template>
   <div id="app">
     <Board :chips="$data.map"/>
+    <div>
+      <router-link to="/list" replace>list of games</router-link>
+      <br/>
+      <router-link to="/create">createGame</router-link>
+      <br/>
+      <router-link to="/">home</router-link>
+    </div>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -13,7 +21,7 @@ mapObj.set(2, { color: "white", num: 3})
 mapObj.set(24, { color: "white", num: 15})
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Board
   },
