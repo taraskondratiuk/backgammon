@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "backgammon-313018",
+  "private_key_id": "48e35647064d992c66b42d447e63375deaf76a7e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCoe1UhYqvT36W9\nUBiqu0U35sjevWe2Nc/2MwXo4Dt5Q2Yb4JDXE4Sic4wZbg/3kTnidkiZfJPce419\nmjk6yzNuB2K0MjvFLgfyrxnB+jidLq4xettYK3Rs4CPit1Ptf2TGXDhS25PlddhK\nVM210NB94eY8XyPlSLGzK265VauGfh/gvMhz5OoZO8k0y/6qfwEZymG9hhdWCNUW\nYlcTE+8Uysk4uHaM2AcS9ZaZ3Z9g8B4SWb2olRVQDQHLuHRacjaqD/YVCMYl4RXl\n4HMDGEr5q9Qr55gAhqvG+c+H/3m14AS+qBKtGlMzEMU2O99ZP9QZJzmwaESNx6YM\nch+J4g8jAgMBAAECggEAHXyoY5VvWT+VNFLmXks0TBpaIZGoqx0z7nTzndRQ1GJV\nZp+g+eNynTP32yOGK+AA73+gKSzCfB4rn0X0qjOSJrmoLr1z9Iif33uB2I9AhVH8\nLrC/3uiMEdoQrcdEKxbWvli5itbfRZOgbTH2ZtHLC50TvJEyKRjV8POzB0DVKk5z\nnhW980s/7EYwzeXb3YX7GR8luRtJ2YYkNUUZRG6eGve1gv+lEDmaPAKo0GTR/vnC\nLARydT5zYyFQd1y/Iw95DjWVIYmI1xArREb72ttQFyKrZ78D05Yl/rfEX1QHKhOF\nmdRBwW4aCJJ4LoYYFYuVV2jVuXKljeeJ2R2BYQnOkQKBgQDlFWJHmTEacJZ60/2F\nBjVdvO+7SEq7cnrzcrLnfbDm/NHzGvNTXI/MDgczSeiryAZuXSXEHqPU9y2IaRVH\ndMN9QbHP2+AFaBnfvdvDzYJkcbpyw0j/3yWMy3O0d8QQpiJeRWUIitZjnXiEy5xN\n+Hb3/buPLxj7Abu+tqlALizy9QKBgQC8RxrZNvzEdxhFItV9F7m188U0fbDH2bvo\ny23C2B+dr3ppDKXYPnZU35f+oTTdXz7rcE//Nvv+vQZ/N8H27xZqigK+uhqjiNwB\nbbzQYQl+BeUXyoBtqoIpobeVy0HTygArG7QSn0FnSfdnRjFA29wIz/pkxiIuK+qF\nEmU6oZWatwKBgQDH2rMGEcDD90tg1wcLAZKXN9jRw8zm4YYgU4V+7aniqtgjRfTY\nWh1dgTOI7Ebfbr8lk3/6LFzz07zWkA6va0+NPD37QDCdpudDyigrF2RVat6ldnd+\nOthQj8JexEm52KaNJe9x12YYO+5DtDqlz0lDKwpxbT5W5Xk8dbEMu/wc7QKBgBdU\nlE4gUzghLd+7Tkse+oNCfshfXt2U7IUPWD2RvHE0wm1sBM0ECHPB9Tq3TS61U72n\nADK25IkPcVOoXB+2RsfS7D4oH47uMZz3tTL5I0z7fATzsfBk9ZYlFPO56SFOYbD1\n0N2R4G/lKYQhnY7U77Ij23pLVwbzqC7vNZ4LUdeHAoGATyCzBlqtuNdWL/CzvJUG\nQVXcNvOdRdeXQV2asQwWDSMhQ4PQlsnSSIBXp7SYBD7X0EeVeDYuYgZZxWXfyDl8\nj3MSPOH3lUvLzEXWVP/2fltYUom/6l1/P28L6WkVxrcz6dvX7t8i9aboAC7Wl7MO\n5Bew5Cbj0QHYfeC6/akjse4=\n-----END PRIVATE KEY-----\n",
+  "client_email": "k8s-837@backgammon-313018.iam.gserviceaccount.com",
+  "client_id": "117843799922987497174",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/k8s-837%40backgammon-313018.iam.gserviceaccount.com"
+}

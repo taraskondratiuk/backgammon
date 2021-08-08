@@ -1,0 +1,18 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gsutil'
+    id: Get setting.xml
+    args: [ 'cp', 'gs://backgammon/settings.xml', 'custom-settings.xml' ]
+  - name: 'gcr.io/cloud-builders/mvn'
+    id: Build
+    args: ['--settings', 'custom-settings.xml', 'package' ]
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    args:
+      - gcloud
+      - functions
+      - deploy
+      - function-persist-gs
+      - --entry-point=me.taras.persistgsfun.Main
+      - --runtime=java11
+      - --region=europe-central2
+      - --source=target/deployment
+      - --trigger-http

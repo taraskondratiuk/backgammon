@@ -1,0 +1,12 @@
+{
+  "name": "backgammon-lib",
+  "//": "version should be updated manually according to build.gradle file",
+  "version": "0.1.20",
+  "main": "index.js",
+  "workspaces": [
+    "packages\\backgammon-lib"
+  ],
+  "dependencies": {
+    "kotlin": "1.4.32"
+  }
+}

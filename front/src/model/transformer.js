@@ -1,9 +1,9 @@
-import * as models  from "backgammon-lib"
+import * as bg from "backgammon-lib"
 
 export function gameDocToObj(doc) {
     const rowData = doc.data()
 
-    return new models.me.taras.lib.model.GameFullData(
+    return new bg.me.taras.lib.model.GameFullData(
         rowData.player1Id,
         rowData.player2Id,
         rowData.allDices,

@@ -17,4 +17,10 @@ data class GameFullData( //setting default params cause need empty constructor t
     val params: GameParams = GameParams()
 )
 
-data class GameParams(val gameId: String = "", val player1Id: String = "", val firstTurnColor: Color = Color.ABSENT, val player1Color: Color = Color.ABSENT, val gameType: String = "", val isByLink: Boolean = false, val isPublic: Boolean = false)
+data class GameParams(val gameId: String = "",
+                      val player1Id: String = "",
+                      val firstTurnColor: Color = Color.ABSENT,
+                      val player1Color: Color = Color.ABSENT,
+                      val gameType: String = "",
+                      val isByLink: Boolean = false,
+                      val isPublic: Boolean = false)

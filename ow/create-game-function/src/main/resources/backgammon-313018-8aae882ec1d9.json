@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "backgammon-313018",
+  "private_key_id": "8aae882ec1d9fb89a3394e7bdbf0503d720857fd",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCjPBLdqhLSNYxt\nJHxy/8tovJfFrxGK2P8mN1WM3tqkyhsRlggCfdVD8WJmNGgGK7thW+DBnH+Le/4U\nl8gL3TJuyCbqKinlXX+90AXZ/Pc9xddzN5EtCy/E0h/aS6nM8RlQLkL/twR1Y1/B\nyXf+l/aBiwf9yf+nofnYD3YpYnov30uLbRF7GNSAEkrkAedDslCQD2ykXWnV0EYP\nCdyk4FngWFrREXinvMkZ+ocJcYinO2IrNixKQh9DsxlDX8pxXDCWsFoycpKJ2nG4\nrrguZPwKg7wvJvOjFOPzKDjNn5pFNJ/KN6fV0Y7Xr/wPYo6DMwStwQg7l5SBfS1/\nLHMvMwlNAgMBAAECggEAAbhYI1lvpolr6zNPbTYAb1OCO4VAJ3kCT0vIxs0LLsgp\noUJpRf8MQhGg5zgCjjYXXMvg29Y88Qi9QUhMK/Vu9GqyUxT4qT/jLbcSDx1l5l+9\n70SubsDhOWJUqMwG6qLyKlcidTSStnRcOPWMVY5FloRGV3uxo8ZgLjetF67y+Xgm\ny1raYFelF0VJ+psrS00R9v7uDky44EpxpELpqUrrYbigRGWKlZnYkuCdKz5ewrs+\nqa22QWe2pa0ANe1xfjEX6HaszmnWYvE/ug0I9dewmVPqvs7mHB1XFsbZS7IfNXiA\nN95fXS9wsbIoSitEoBkZswxDG1bkQUyoZIHv0rRIHQKBgQDRyVUXTuWVHxFjTvoD\nPOloQav44v/C86OF6RO94R19zg0yzEYVgoBRmC2cTBxSHNgW/eUTiHxEZHU6z1R0\n+LdePz6hRYIb6l0nZRBmwDKc0zsannRpvwoULnNxcWuMyHuHr5F1+vv46v/tgkXO\n01kK5SSPKyvzT9gr/838AzcUNwKBgQDHMYGTayLGyXjXm20NcaGp7msRu71MpvfE\nQtFzR88QnttvG+wp25sAsQf89M+dL0UMHRb/IsHn/59UNjFb+4DT1x3rh4BwswyA\nCjxNi+hdzQAYu8Fljtaw4imFGdfJImG54q2Ys1ElHAsHrwJbidiRang8axeiA0Ql\nnaTGQyaUmwKBgEjEGOu4xhFvcUyM/FNbMWqkPM5bjnNEpxevvNVD3ELi0dko2bZk\nSbYDnu5zx+8DakCvWGHqGZBvd+oqOBVKn+/k6AhwX6znIeCkQYgiamvTKNEW3TJA\nvXI6mnhi6vcuIwrxbvcJU5UHjjYH1cbjsCMDUCcIxnni3AyG8h/TzasJAoGAQeBD\nhCeIZsm2p0eFt05/Mp3g1wqJvlHx2vxmHIQBHPQMiiBn6CfyiTYC+EtWZht98FWm\nh1ZNXpaRcN5DULJKlsSr5nr3pU3xsl6wNs0wWeU0RPnDKf0lT3ZcWOKFFMXEIB+x\nXbDgAy/VDgN4+iEKeH0HqqOYO0JtRStvlQocNkUCgYEAgufILT7qX9mlpkx72O/h\nsZLJVpPSvd1bfq2OhbWmE81AsvB+BxEtxmNCf19oeEM9Sh6b6xz1lZ/LA0iakz9C\nZgh+N5le+twN+6Tyld7yimGH8dCsTWDHDonv4wlE3cgDOOhTCmKUrMNIG45AwYHf\nJybmoAndWmP0TPSQhWOrlZ8=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-nemzr@backgammon-313018.iam.gserviceaccount.com",
+  "client_id": "102894831141058934069",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-nemzr%40backgammon-313018.iam.gserviceaccount.com"
+}

@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "me.taras"
-version = "0.1.17"
+version = "0.1.19"
 
 repositories {
     mavenCentral()
@@ -15,7 +15,7 @@ kotlin {
     jvm {
         withJava()
         compilations.all {
-            kotlinOptions.jvmTarget = "11"
+            kotlinOptions.jvmTarget = "1.8"
         }
         testRuns["test"].executionTask.configure {
             useJUnit()
@@ -58,7 +58,7 @@ kotlin {
                 url = uri("https://maven.pkg.github.com/taraskondratiuk/backgammon")
                 credentials {
                     username = "taraskondratiuk"
-                    password = "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"
+                    password = "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"
                 }
             }
         }

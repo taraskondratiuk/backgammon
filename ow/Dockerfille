@@ -1,0 +1,5 @@
+FROM openwhisk/java8action
+
+COPY creds.json /tmp/creds.json
+
+ENV GOOGLE_APPLICATION_CREDENTIALS=/tmp/creds.json
